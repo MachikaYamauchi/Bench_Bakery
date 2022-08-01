@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Recommend } from '../interfaces/recommend.interface';
-import { Add, Delete, Login, OneProduct, SignUp, ToggleDisplay, UpdateProduct } from '../interfaces/common.interface';
+import { Product, Add, Delete, Login, SignUp, ToggleDisplay, UpdateProduct, getProductByID } from '../interfaces/common.interface';
 
 
 @Injectable({
@@ -9,10 +8,10 @@ import { Add, Delete, Login, OneProduct, SignUp, ToggleDisplay, UpdateProduct } 
 })
 export class CommonService {
 
-  recommendURL = "http://localhost:4400/recommends";
+  productsURL = "http://localhost:4400/products";
   signupURL = "http://localhost:4400/signup";
   loginURL = "http://localhost:4400/login";
-  showProductURL = "http://localhost:4400/showProduct";
+  displayProductURL = "http://localhost:4400/displayProduct";
   toggleDisplayURL = "http://localhost:4400/toggleDisplay"
 
   constructor(private http:HttpClient) { }
@@ -34,12 +33,12 @@ export class CommonService {
     return this.http.post<Login>(this.loginURL, loginBody);
   }
 
-  getAllReccomend() {
-    return this.http.get<Recommend[]>(this.recommendURL);
+  getAllProducts() {
+    return this.http.get<Product[]>(this.productsURL);
   }
 
-  showProduct() {
-    return this.http.get<Recommend[]>(this.showProductURL);
+  displayProduct() {
+    return this.http.get<Product[]>(this.displayProductURL);
   }
 
   add(image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, alt:string, description:string, display:string) {
@@ -55,14 +54,14 @@ export class CommonService {
       description:description,
       display:display
     }
-    return this.http.post<Add>(this.recommendURL, addBody);
+    return this.http.post<Add>(this.productsURL, addBody);
   }
 
-  oneRecommend(id:number){
-    return this.http.get<OneProduct>(this.recommendURL + "/" + id);
+  getProductByID(id:number){
+    return this.http.get<getProductByID>(this.productsURL + "/" + id);
   }
 
-  updateRecommend(productID:any, image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, alt:string, description:string, display:string){
+  updateProduct(productID:any, image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, alt:string, description:string, display:string){
     let updateBody = {
       productID:productID,
       image1:image1,
@@ -76,11 +75,11 @@ export class CommonService {
       description:description,
       display:display
     }
-    return this.http.put<UpdateProduct>(this.recommendURL, updateBody);
+    return this.http.put<UpdateProduct>(this.productsURL, updateBody);
   }
 
   delete(id:any) {
-    return this.http.delete<Delete>(this.recommendURL + "/" + id)
+    return this.http.delete<Delete>(this.productsURL + "/" + id)
   }
 
   toggleDisplay(id:any) {

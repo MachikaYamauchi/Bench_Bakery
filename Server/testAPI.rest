@@ -1,17 +1,6 @@
 @url = http://localhost:4400
 
-GET {{url}}/recommends
-
-###
-
-POST {{url}}/signup
-Content-Type: application/json
-
-{
-    "username":"Chika",
-    "email":"c@c.com",
-    "password":"1234"
-}
+GET {{url}}/products
 
 ###
 POST {{url}}/login
@@ -24,7 +13,7 @@ Content-Type: application/json
 
 ###
 
-POST {{url}}/recommends
+POST {{url}}/products
 Content-Type: application/json
 
 {
@@ -33,45 +22,45 @@ Content-Type: application/json
     "image3":"assets/freshsand3.png",
     "name":"Fresh Sand",
     "rating":10,
-    "price":"$10.0",
-    "stock":"10",
+    "price":10.0,
+    "stock":10,
     "alt":"Fresh Sand Enjoy Summer",
     "description":"Our Fresh Sand is with daily fresh vegetables!",
     "display":1
 }
 
 ###
-GET {{url}}/recommends/3
+GET {{url}}/products/3
 
 ###
-PUT {{url}}/recommends
+PUT {{url}}/products
 Content-Type: application/json
 
 {
-    "productID":"6",
-    "image1":"assets/croissant1.png",
-    "image2":"assets/croissant2.png",
-    "image3":"assets/croissant3.png",
-    "name":"Fresh Sand",
+    "productID":"10",
+    "image1":"test.png",
+    "image2":"test.png",
+    "image3":"test.png",
+    "name":"Test",
     "rating":12,
-    "price":"$12.12",
-    "stock":"12",
+    "price":12.12,
+    "stock":12,
     "alt":"VVVVVV",
     "description":"SSSSSSSS",
     "display":0
 }
 
 ###
-GET {{url}}/showProduct
+DELETE  {{url}}/products/9
+
+###
+GET {{url}}/displayProduct
 
 ###
 PUT {{url}}/toggleDisplay
 Content-Type: application/json
 
 {
-    "id":1
+    "id":8
 }
 
-
-###
-DELETE  {{url}}/recommends/6

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Recommend } from '../interfaces/recommend.interface';
+// import { Recommend } from '../interfaces/recommend.interface';
 import { CommonService } from '../services/common.service';
 import { Router } from '@angular/router';
+import { Product } from '../interfaces/common.interface';
 
 @Component({
   selector: 'app-admin',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
-  recommendJSON:Recommend[] =[];
+  productsJSON:Product[] =[];
 
   image1:string = "";
   image2:string = "";
@@ -66,9 +67,9 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cs.getAllReccomend().subscribe((recommend) => {
-      console.log(recommend);
-      this.recommendJSON = recommend;
+    this.cs.getAllProducts().subscribe((products) => {
+      console.log(products);
+      this.productsJSON = products;
     })
   }
 

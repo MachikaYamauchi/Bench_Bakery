@@ -33,7 +33,7 @@ export class UpdateComponent implements OnInit {
 
   updateRecommend() {
     let id:any = this.route.snapshot.paramMap.get("id");
-    this.cs.updateRecommend(id, this.image1, this.image2, this.image3, this.name, this.rating, this.price, this.stock, this.alt,this.description, this.display).subscribe(updateData => {
+    this.cs.updateProduct(id, this.image1, this.image2, this.image3, this.name, this.rating, this.price, this.stock, this.alt,this.description, this.display).subscribe(updateData => {
       console.log(updateData);
       this.displayMessage = "block";
       this.updateStatus = updateData.update;
@@ -44,8 +44,9 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // 要確認！！！！
     let id:any = this.route.snapshot.paramMap.get("id");
-    this.cs.oneRecommend(id).subscribe(productData=> {
+    this.cs.getProductByID(id).subscribe(productData=> {
       this.image1 = productData.data[0].image1;
       this.image2 = productData.data[0].image2;
       this.image3 = productData.data[0].image3;

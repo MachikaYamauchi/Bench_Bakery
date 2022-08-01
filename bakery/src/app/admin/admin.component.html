@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link disabled" href="">
               <span data-feather="file" class="align-text-bottom"></span>
               Orders
             </a>
@@ -128,7 +128,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of recommendJSON">
+            <tr *ngFor="let item of productsJSON">
               <th scope="row">{{item.id}}</th>
               <td><img src="../../{{item.image1}}" alt=""></td>
               <td><img src="../../{{item.image2}}" alt=""></td>
@@ -201,96 +201,3 @@
     </main>
   </div>
 </div>
-
-
-
-
-<!-- <h1>Admin Page</h1>
-<div class="container">
-  <h3>Product Lists</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">On display</th>
-        <th scope="col">image1</th>
-        <th scope="col">image2</th>
-        <th scope="col">image3</th>
-        <th scope="col">name</th>
-        <th scope="col">rating</th>
-        <th scope="col">price</th>
-        <th scope="col">stock</th>
-        <th scope="col">alt</th>
-        <th scope="col">description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of recommendJSON">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.display}}</td>
-        <td><img src="../../{{item.image1}}" alt=""></td>
-        <td><img src="../../{{item.image2}}" alt=""></td>
-        <td><img src="../../{{item.image3}}" alt=""></td>
-        <td>{{item.name}}</td>
-        <td>{{item.rating}}</td>
-        <td>{{item.price}}</td>
-        <td>{{item.stock}}</td>
-        <td>{{item.alt}}</td>
-        <td>{{item.description}}</td>
-        <td>
-          <button class="btn btn-primary" [routerLink]="['/update/', item.id]">edit</button>
-        </td>
-        <td><button class="btn btn-primary w-100" (click)="delete(item.id)">delete</button></td>
-        <td>
-          <div class="form-check form-switch">
-            <input [(ngModel)]="item.display" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="toggleDisplay(item.id)">
-            <label class="form-check-label" for="flexSwitchCheckDefault">display on site</label>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div> -->
-
-<!-- <div class="container add">
-  <h3>Add new products</h3>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image1</label>
-    <input [(ngModel)]="image1" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image2</label>
-    <input [(ngModel)]="image2" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image3</label>
-    <input [(ngModel)]="image3" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">name</label>
-    <input [(ngModel)]="name" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">rating</label>
-    <input [(ngModel)]="rating" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Price</label>
-    <input [(ngModel)]="price" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Stock</label>
-    <input [(ngModel)]="stock" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Alt</label>
-    <input [(ngModel)]="alt" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Description</label>
-    <input [(ngModel)]="description" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button class="btn btn-primary w-100" (click)="add()">Add</button>
-  <div *ngIf="addStatus" class = "success" [style.display]="addDisplay">You add products successfully!</div>
-  <div *ngIf="!addStatus" class = "error" [style.display]="addDisplay">Sorry, you cannot add products because {{addMessage.sqlMessage}}</div>
-</div> -->

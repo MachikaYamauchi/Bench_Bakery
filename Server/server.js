@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     port: 8889,
     user:'root',
     password:'root',
-    database:'Term3_week4Project'
+    database:'Bench Bakery'
 })
 
 const server = express();
@@ -21,9 +21,9 @@ db.connect(error=> {
         console.log('Connected to mysql db');
 })
 
-server.get('/recommends', (req, res) => {
-    let allRecommends = "CALL `All_recommends_data`()";
-    let query = db.query(allRecommends, (error, data) => {
+server.get('/products', (req, res) => {
+    let allProducts = "CALL `getAllProducts`();";
+    let query = db.query(allProducts, (error, data) => {
         if(error) {
             res.json({ErrorMessage: error})
         }
@@ -68,7 +68,7 @@ server.post('/login', (req, res) => {
     })
 })
 
-server.post('/recommends', (req, res) => {
+server.post('/products', (req, res) => {
     let image1 = req.body.image1;
     let image2 = req.body.image2;
     let image3 = req.body.image3;
@@ -79,38 +79,38 @@ server.post('/recommends', (req, res) => {
     let alt = req.body.alt;
     let description = req.body.description;
     let display = req.body.display;
-    let query = "CALL `add`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    let query = "CALL `addNewProduct`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     db.query(query, [image1, image2, image3, name, rating, price, stock, alt, description, display], (error, data) => {
         if(error){
             res.json({add:false, message:error})
         }
         else {
-            res.json({add:true, message:"Add Success"})
+            res.json({add:data[0][0], message:"Add Success"})
         }
     })
 })
 
 
-server.get('/recommends/:id', (req, res) => {
+server.get('/products/:id', (req, res) => {
     let productID = req.params.id;
-    let query = "CALL `One_Product`(?)";
+    let query = "CALL `getProductByID`(?)";
     db.query(query, [productID], (error, data) => {
         if(error) {
-            res.json({getOneProduct:false, message:error})
+            res.json({getProductByID:false, message:error})
         }
         else {
             if(data[0].length === 0) {
-                res.json({getOneProduct:false, message:"Sorry, you cannot get product data"});
+                res.json({getProductByID:false, message:"Sorry, you cannot get product data"});
             }
             else {
-                res.json({getOneProduct:true, message:"Get one product Success!", data:data[0]});
+                res.json({getProductByID:data[0][0], message:"Get one product Success!"});
             }
         }
     })
 })
 
 
-server.put('/recommends', (req, res) => {
+server.put('/products', (req, res) => {
     let productID = req.body.productID;
     let image1 = req.body.image1;
     let image2 = req.body.image2;
@@ -129,12 +129,12 @@ server.put('/recommends', (req, res) => {
             res.json({update:false, message:error});
         }
         else {
-            res.json({update:true, message:"Update success"});
+            res.json({update:data[0][0], message:"Update success"});
         }
     })
 })
 
-server.delete('/recommends/:id', (req, res) => {
+server.delete('/products/:id', (req, res) => {
     let productID = req.params.id;
     let query = "CALL `deleteProduct`(?)";
     db.query(query, [productID], (error, data)=> {
@@ -142,13 +142,13 @@ server.delete('/recommends/:id', (req, res) => {
             res.json({delete:false, message:error})
         }
         else {
-            res.json({delete:true, message:"Delete success"})
+            res.json({delete:data[0][0], message:"Delete success"})
         }
     })
 })
 
-server.get('/showProduct', (req,res)=> {
-    let query = "CALL `showProduct`()";
+server.get('/displayProduct', (req,res)=> {
+    let query = "CALL `displayProduct`()";
     db.query(query, (error, data) => {
         if(error) {
             res.json({showProduct:false, message:error})
@@ -166,7 +166,7 @@ server.get('/showProduct', (req,res)=> {
 
 server.put('/toggleDisplay', (req, res) => {
     let productID = req.body.id;
-    let query = "CALL `toggle_display`(?);";
+    let query = "CALL `toggle_Display`(?)";
     db.query(query, [productID], (error, data) => {
         if(error) {
             res.json({toggleDisplay:false, messsage:error});

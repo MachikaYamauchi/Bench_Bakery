@@ -4,4 +4,27 @@
 body {
   font-family: 'Helvetica', 'Arial', sans-serif;
   color: #1E1E1E;
+  background-color: #faf6ec;
+}
+
+a {
+  text-decoration: none;
+  color: #032059;
+  font-size: 20px;
+}
+
+img {
+  max-width: 100%;// To prevent the image size getting bigger than prarent element
+}
+
+.wrapper {
+  max-width: 1200px;/*max width for contents area コンテンツ幅の最大値*/
+  margin: 0 auto; /*placing in center 中央に配置*/
+  padding: 0 4%; /* padding for smart phone スマートフォン向け余白の指定*/
+}
+
+.wrapper_work_tb_pc {
+  max-width: 80%;/*max width for contents area */
+  margin: 0 auto; /*placing in center */
+  padding: 0 4%; /* padding for smart phone */
 }
