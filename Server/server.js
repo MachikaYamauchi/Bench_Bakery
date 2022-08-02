@@ -1,13 +1,14 @@
 import express from 'express';
 import mysql from 'mysql';
 import cors from 'cors';
+import 'dotenv/config';
 
 const db = mysql.createConnection({
-    host:'localhost',
-    port: 8889,
-    user:'root',
-    password:'root',
-    database:'Bench Bakery'
+    host:process.env.host,
+    port: process.env.port,
+    user:process.env.user,
+    password:process.env.password,
+    database:process.env.database
 })
 
 const server = express();
