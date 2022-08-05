@@ -1,6 +1,7 @@
 import express from 'express';
-import mysql from 'mysql';
+import mysql from 'mysql2';
 import cors from 'cors';
+import multer from 'multer';
 import 'dotenv/config';
 
 const db = mysql.createConnection({
@@ -15,12 +16,35 @@ const server = express();
 server.use(cors());
 
 server.use(express.json());
+
+server.use(express.static('uploads'));// make the "uploads" file to public so can access from "localhost:4400/uploads"
+
+
 db.connect(error=> {
     if(error)
         console.log('Sorry cannot connect to db: ', error);
     else
         console.log('Connected to mysql db');
 })
+
+// configure multer storage
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+    //   const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      cb(null, file.originalname)
+    }
+})
+
+// create instance of multer configuration settings
+const fileupload = multer({storage:storage})
+
+// "file_fromC" should match with the name of input tag's value
+server.post('/upload', fileupload.single("file_fromC"), (req, res) => {
+    res.json({fileupload:true});
+});
 
 server.get('/products', (req, res) => {
     let allProducts = "CALL `getAllProducts`();";
@@ -34,20 +58,20 @@ server.get('/products', (req, res) => {
     })
 })
 
-server.post('/signup', (req, res)=> {
-    let username = req.body.username;
-    let email = req.body.email;
-    let password = req.body.password;
-    let query = "CALL `signup`(?, ?, ?)";
-    db.query(query, [username, email, password], (error, data)=> {
-        if(error){
-            res.json({signup:false, message:error});
-        }
-        else {
-            res.json({signup:true, message:"Signup Success"})
-        }
-    })
-})
+// server.post('/signup', (req, res)=> {
+//     let username = req.body.username;
+//     let email = req.body.email;
+//     let password = req.body.password;
+//     let query = "CALL `signup`(?, ?, ?)";
+//     db.query(query, [username, email, password], (error, data)=> {
+//         if(error){
+//             res.json({signup:false, message:error});
+//         }
+//         else {
+//             res.json({signup:true, message:"Signup Success"})
+//         }
+//     })
+// })
 
 server.post('/login', (req, res) => {
     let username = req.body.username;

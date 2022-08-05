@@ -26,6 +26,9 @@ export class AdminComponent implements OnInit {
 
   liveOnSite:string = "";
 
+  // filename:string = '';
+  // myformdate:any;
+
   addStatus = false;
   addDisplay = "none";
   addMessage:any = "";
@@ -45,6 +48,17 @@ export class AdminComponent implements OnInit {
       this.addMessage = addData.message
     })
   }
+
+  // trackFile(event:any) {
+  //   let myfile = event.target.files[0];
+  //   // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
+  //   this.filename = myfile.name;
+  //   console.log("MY FILE ---> ", myfile);
+  //   const formdata = new FormData();
+  //   formdata.append("file_fromC", myfile, myfile.name);
+  //   // console.log("formdata --> ", formdata);
+  //   this.myformdate = formdata;
+  // }
 
   delete(id:any){
     if(confirm("Are you sure?")) {

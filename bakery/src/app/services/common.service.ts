@@ -13,6 +13,7 @@ export class CommonService {
   loginURL = "http://localhost:4400/login";
   displayProductURL = "http://localhost:4400/displayProduct";
   toggleDisplayURL = "http://localhost:4400/toggleDisplay"
+  private fileuploadURL = "http://localhost:4400/upload";
 
   constructor(private http:HttpClient) { }
 
@@ -87,5 +88,9 @@ export class CommonService {
       id:id
     }
     return this.http.put<ToggleDisplay>(this.toggleDisplayURL, postID)
+  }
+
+  uploadFile(formdata:any) {
+    return this.http.post(this.fileuploadURL, formdata)
   }
 }
