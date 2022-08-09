@@ -51,7 +51,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  {{url}}/products/9
+DELETE  {{url}}/products/12
 
 ###
 GET {{url}}/displayProduct

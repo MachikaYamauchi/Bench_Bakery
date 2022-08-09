@@ -3,6 +3,7 @@ import mysql from 'mysql2';
 import cors from 'cors';
 import multer from 'multer';
 import 'dotenv/config';
+import fs from 'fs';
 
 const db = mysql.createConnection({
     host:process.env.host,
@@ -162,14 +163,50 @@ server.put('/products', (req, res) => {
 server.delete('/products/:id', (req, res) => {
     let productID = req.params.id;
     let query = "CALL `deleteProduct`(?)";
-    db.query(query, [productID], (error, data)=> {
+    let getFilename = "CALL `getProductByID`(?)";
+    db.query(getFilename, [productID], (error, data) => {
         if(error) {
-            res.json({delete:false, message:error})
+
         }
         else {
-            res.json({delete:data[0][0], message:"Delete success"})
+            let file_to_be_deleted1 = data[0][0].image1;
+            let file_to_be_deleted2 = data[0][0].image2;
+            let file_to_be_deleted3 = data[0][0].image3;
+            // console.log(data[0][0].image1)
+            fs.unlink('./uploads/' + file_to_be_deleted1,  (error) => {
+                if(error) {
+                    res.json({deleteStatus:false, message:error});
+                }
+                else {
+                    db.query(query, [productID], (error, deleteStatus) => {
+                        if(error) {
+                            res.json({deleteStatus:false, message:error});
+                        }
+                        else {
+                            let del_success = deleteStatus[0][0].DEL_SUCCESS;
+                            if(del_success === 1) {
+                                res.json({deleteStatus:del_success, message:"successfull deleted"});
+                            }
+                            else {
+                                res.json({deleteStatus:del_success, message:"ID not found"})
+                            }
+                        }
+                    })
+                }
+            })
         }
     })
+
+
+
+    // db.query(query, [productID], (error, data)=> {
+    //     if(error) {
+    //         res.json({delete:false, message:error})
+    //     }
+    //     else {
+    //         res.json({delete:data[0][0], message:"Delete success"})
+    //     }
+    // })
 })
 
 server.get('/displayProduct', (req,res)=> {
