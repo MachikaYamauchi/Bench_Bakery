@@ -17,27 +17,26 @@ POST {{url}}/products
 Content-Type: application/json
 
 {
-    "image1":"assets/freshsand1.png",
-    "image2":"assets/freshsand2.png",
-    "image3":"assets/freshsand3.png",
+    "image1":"test.png",
+    "image2":"test.png",
+    "image3":"test.png",
     "name":"Fresh Sand",
     "rating":10,
     "price":10.0,
     "stock":10,
-    "alt":"Fresh Sand Enjoy Summer",
     "description":"Our Fresh Sand is with daily fresh vegetables!",
     "display":1
 }
 
 ###
-GET {{url}}/products/3
+GET {{url}}/products/16
 
 ###
 PUT {{url}}/products
 Content-Type: application/json
 
 {
-    "productID":"10",
+    "productID":"18",
     "image1":"test.png",
     "image2":"test.png",
     "image3":"test.png",
@@ -45,7 +44,6 @@ Content-Type: application/json
     "rating":12,
     "price":12.12,
     "stock":12,
-    "alt":"VVVVVV",
     "description":"SSSSSSSS",
     "display":0
 }

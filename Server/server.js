@@ -104,11 +104,10 @@ server.post('/products', (req, res) => {
     let rating = req.body.rating;
     let price = req.body.price;
     let stock = req.body.stock;
-    let alt = req.body.alt;
     let description = req.body.description;
     let display = req.body.display;
-    let query = "CALL `addNewProduct`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    db.query(query, [image1, image2, image3, name, rating, price, stock, alt, description, display], (error, data) => {
+    let query = "CALL `addNewProduct`(?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    db.query(query, [image1, image2, image3, name, rating, price, stock, description, display], (error, data) => {
         if(error){
             res.json({add:false, message:error})
         }
@@ -131,7 +130,7 @@ server.get('/products/:id', (req, res) => {
                 res.json({getProductByID:false, message:"Sorry, you cannot get product data"});
             }
             else {
-                res.json({getProductByID:data[0][0], message:"Get one product Success!"});
+                res.json(data[0][0]);
             }
         }
     })
@@ -147,12 +146,11 @@ server.put('/products', (req, res) => {
     let rating = req.body.rating;
     let price = req.body.price;
     let stock = req.body.stock;
-    let alt = req.body.alt;
     let display = req.body.display;
     let description = req.body.description;
 
-    let query = "CALL `updateProduct`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    db.query(query, [productID, image1, image2, image3, name, rating, price, stock, alt, description, display], (error, data) => {
+    let query = "CALL `updateProduct`(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    db.query(query, [productID, image1, image2, image3, name, rating, price, stock, description, display], (error, data) => {
         if(error){
             res.json({update:false, message:error});
         }
