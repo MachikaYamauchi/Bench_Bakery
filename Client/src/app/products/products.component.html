@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 products_wrapper" *ngFor="let products of productsJSON">
+      <div>
+        <div [id]="'carouselExampleControlsNoTouching_' + products.id" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img [src]="products.image1" class="d-block w-100" [alt]="products.alt">
+            </div>
+            <div class="carousel-item">
+              <img [src]="products.image2" class="d-block w-100" [alt]="products.alt">
+            </div>
+            <div class="carousel-item">
+              <img [src]="products.image3" class="d-block w-100" [alt]="products.alt">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleControlsNoTouching_'+ products.id" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleControlsNoTouching_'+ products.id" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="name">
+          <p>{{products.name}}</p>
+        </div>
+        <div class="rating">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="price">
+          <p>{{products.price}}</p>
+        </div>
+        <div class="stock">
+          <p><stock [totalStocks]="products.stock" [isLessStock]="isLessStock(products.stock)"></stock></p>
+        </div>
+        <div class="description">
+          <p>{{products.description}}</p>
+        </div>
+        <div class="cart_wrapper">
+          <a href="">Add to Cart</a>
+        </div>
+      </div>
+      <!-- [id]="products.carousel" -->
+
+    </div>
+  </div>
+</div>
