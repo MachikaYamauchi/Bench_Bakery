@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product, Add, Delete, Login, SignUp, ToggleDisplay, UpdateProduct, getProductByID } from '../interfaces/common.interface';
+import { Product, Add, Delete, Login, ToggleDisplay, UpdateProduct, SignUp } from '../interfaces/common.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -8,12 +9,12 @@ import { Product, Add, Delete, Login, SignUp, ToggleDisplay, UpdateProduct, getP
 })
 export class CommonService {
 
-  productsURL = "http://localhost:4400/products";
-  signupURL = "http://localhost:4400/signup";
-  loginURL = "http://localhost:4400/login";
-  displayProductURL = "http://localhost:4400/displayProduct";
-  toggleDisplayURL = "http://localhost:4400/toggleDisplay"
-  private fileuploadURL = "http://localhost:4400/upload";
+  private productsURL = environment.bakeryserver + "/products";
+  private signupURL = "http://localhost:4400/signup";
+  private loginURL = environment.bakeryserver + "/login";
+  private displayProductURL = environment.bakeryserver + "/displayProduct";
+  private toggleDisplayURL = environment.bakeryserver + "/toggleDisplay";
+  private fileuploadURL = environment.bakeryserver + "/upload";
 
   constructor(private http:HttpClient) { }
 
@@ -42,7 +43,7 @@ export class CommonService {
     return this.http.get<Product[]>(this.displayProductURL);
   }
 
-  add(image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, alt:string, description:string, display:string) {
+  add(image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, description:string, display:string) {
     let addBody = {
       image1:image1,
       image2:image2,
@@ -51,7 +52,6 @@ export class CommonService {
       rating:rating,
       price:price,
       stock:stock,
-      alt:alt,
       description:description,
       display:display
     }
@@ -59,10 +59,10 @@ export class CommonService {
   }
 
   getProductByID(id:number){
-    return this.http.get<getProductByID>(this.productsURL + "/" + id);
+    return this.http.get<Product>(this.productsURL + "/" + id);
   }
 
-  updateProduct(productID:any, image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, alt:string, description:string, display:string){
+  updateProduct(productID:any, image1:string, image2:string, image3:string, name:string, rating:number, price:string, stock:number, description:string, display:string){
     let updateBody = {
       productID:productID,
       image1:image1,
@@ -72,7 +72,6 @@ export class CommonService {
       rating:rating,
       price:price,
       stock:stock,
-      alt:alt,
       description:description,
       display:display
     }

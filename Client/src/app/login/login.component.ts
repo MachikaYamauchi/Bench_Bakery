@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   username:string = "";
   password:string = "";
   loginStatus:boolean = true;
+  formInvalid = true;
 
   constructor(private cs:CommonService, private router:Router) { }
 
@@ -25,6 +26,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin']);
       }
     })
+  }
+
+  resolved(event:any) {
+    if(event) {
+      this.formInvalid = false;
+    }
   }
 
   ngOnInit(): void {

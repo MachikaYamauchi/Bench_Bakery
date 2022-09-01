@@ -1,43 +1,23 @@
-@mixin heading($fontsize:24px) {
+
+@mixin heading() {
   font-family: 'Playfair Display', serif;
-  font-size: $fontsize;
 }
 
+$breakpoints: (
+  'xs': 'screen and (min-width: 1px)',
+  'sm': 'screen and (min-width: 576px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 992px)',
+)!default;
 
-header {
-  .navbar {
-    position: absolute;
-    width:100%;
-    top:0;
-    left: 0;
-    z-index: 1000;
-    .logo {
-      width: 150px;
-      margin: 16px 0;
-    }
-    .navbar-toggler .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-      font-size: 20px;
-    }
-    .navbar-toggler {
-      border-color: transparent;
-    }
-    .navbar-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: black;
-      opacity: 0.8;
-    }
-    .nav-link {
-      color: white;
-    }
+@mixin media($breakpoint:md){
+  @media #{map-get($breakpoints,$breakpoint)}{
+    @content;
   }
 }
 
-
 .hero_home {
-  background-image:url("/assets/hero_home5.jpg");
+  background-image:url("../../assets/hero_home.jpg");
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,111 +28,178 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-
+    width: 80%;
+    color: white;
+    p {
+      letter-spacing: 0.5rem;
+      @include media(xs) {
+        margin-bottom: 24px
+      }
+      @include media(sm) {
+        font-size: 24px;
+      }
+      @include media(md) {
+        font-size: 24px;
+      }
+    }
     h1 {
       @include heading();
-      color: white;
-      // font-weight: 600;
       text-shadow: 2px 2px 2px rgba(0,0,0,0.24);
-    }
-  }
-}
-
-.products {
-  h2 {
-    display: flex;
-    justify-content: center;
-    @include heading(32px);
-    margin: 54px 0;
-  }
-}
-
-footer {
-  width: 100%;
-  height: 100px;
-  background-color: #25264A;
-  .social {
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
-  }
-  i {
-    font-size: 24px;
-    padding-left: 16px;
-    color: white;
-  }
-}
-
-
-
-// tablet ------------------------------------------------------------------
-@media (min-width:600px) and (max-width:1024px) {
-  header {
-    .navbar {
-      .logo {
-        width: 300px;
-      }
-      .navbar-toggler .navbar-toggler-icon {
+      letter-spacing: 0.4rem;
+      @include media(xs) {
         font-size: 40px;
+        margin-bottom: 56px;
+      }
+      @include media(sm) {
+        font-size: 48px;
+        margin-bottom: 72px;
+      }
+      @include media(md) {
+        font-size: 56px;
+        margin-bottom: 72px;
+      }
+      @include media(lg) {
+        font-size: 56px;
       }
     }
-  }
-
-  .hero_home {
-    min-height: 500px;
-    .hero_homeContent {
-      h1 {
-        @include heading(56px);
-      }
-    }
-  }
-
-  .products {
-    h2 {
-      @include heading(48px);
-      margin: 64px 0;
-    }
-  }
-}
-
-
-// Desktop -----------------------------------------------------------------
-@media  (min-width:1025px) {
-  header {
-    .navbar {
-      .logo {
-        width: 300px;
-      }
-      .navbar-nav {
-        display: flex;
-        flex-direction: row;
-        background-color: transparent;
-      }
-      .nav-item {
-        padding-left: 24px;
-        .nav-link {
-          color: white;
-          text-shadow: 2px 2px 2px rgba(0,0,0,0.24);
+    .btn_wrapper {
+      a {
+        color: #503629;
+        background-color: white;
+        letter-spacing: 0.5rem;
+        padding: 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        @include media(lg) {
+          font-size: 1.6rem;
+          letter-spacing: 0.4rem
         }
       }
     }
   }
-  .hero_home {
-    min-height: 700px;
-    .hero_homeContent {
-      text-align: center;
-      h1 {
-        @include heading(56px);
-        color: white;
-        text-shadow: 2px 2px 2px rgba(0,0,0,0.24);
+}
+
+#products {
+  padding-top: 100px;
+  @include media(xs) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 72px;
+  }
+  @include media(sm) {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 64px;
+  }
+  @include media(md) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+  @include media(lg) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+  h2 {
+    display: flex;
+    justify-content: center;
+    @include heading();
+    letter-spacing: 0.4rem;
+    font-size: 32px;
+    margin: 54px 0;
+  }
+}
+
+section.our_story {
+  @include media(xs) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 72px;
+  }
+  @include media(sm) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+  }
+  @include media(md) {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+  }
+  @include media(lg) {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 160px;
+  }
+  .intro_container {
+    @include media(xs) {
+      margin-bottom: 32px;
+    }
+    @include media(lg) {
+      margin-bottom: 72px;
+    }
+    h2 {
+      display: flex;
+      justify-content: center;
+      @include heading();
+      letter-spacing: 0.4rem;
+      font-size: 32px;
+      margin: 54px 0;
+    }
+    p {
+      @include media(lg) {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 32px;
+        text-align: center;
       }
     }
   }
-  .products {
-    h2 {
-      @include heading(56px);
-      margin: 80px 0;
+  .story {
+    @include media(md) {
+      padding: 8px;
+    }
+    @include media(lg) {
+      padding: 16px;
+    }
+    img {
+      margin-bottom: 24px;
+    }
+  }
+  .story1 {
+    @include media(xs) {
+      margin-bottom: 40px;
+    }
+    @include media(sm) {
+      margin-bottom: 48px;
+    }
+  }
+  .story2 {
+    @include media(sm) {
+      margin-bottom: 56px;
+    }
+    @include media(md) {
+      margin-top: 64px;
+    }
+    @include media(lg) {
+      margin-top: 72px;
+      margin-bottom: 40px;
+    }
+
+  }
+  .link_btn {
+    text-align: center;
+    margin-top: 40px;
+    a {
+      background-color: #ce9d4c;
+      letter-spacing: 0.5rem;
+      color: white;
+      padding: 24px 40px;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #d7b887;
     }
   }
 }

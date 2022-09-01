@@ -1,0 +1,383 @@
+@mixin heading() {
+  font-family: 'Playfair Display', serif;
+}
+
+$breakpoints: (
+  'xs': 'screen and (min-width: 1px)',
+  'sm': 'screen and (min-width: 576px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 992px)',
+)!default;
+
+@mixin media($breakpoint:md){
+  @media #{map-get($breakpoints,$breakpoint)}{
+    @content;
+  }
+}
+.about_benchbakery {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #503629;
+  background-color: #f9f9f9;
+  font-size: 1.8rem;
+  .hero_about {
+    background-image:url("../../assets/aboutUs_hero.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    @include media(xs) {
+      margin-bottom: 72px;
+    }
+    @include media(sm) {
+      margin-bottom: 64px;
+    }
+    @include media(md) {
+      margin-bottom: 80px;
+    }
+    @include media(lg) {
+      margin-bottom: 80px;
+    }
+    .hero_aboutContent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      color: white;
+      @include media(lg) {
+        font-size: 24px;
+        width: 40%;
+        margin: auto 0;
+      }
+      h1 {
+        @include heading();
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.24);
+        letter-spacing: 0.4rem;
+        text-align: center;
+        @include media(xs) {
+          font-size: 4rem;
+          margin-bottom: 40px;
+        }
+        @include media(sm) {
+          font-size: 5.6rem;
+          margin-bottom: 40px;
+        }
+        @include media(md) {
+          font-size: 5.6rem;
+          margin-bottom: 40px;
+        }
+        @include media(lg) {
+          font-size: 5.6rem;
+        }
+      }
+      p {
+        text-align: center;
+        letter-spacing: 0.5rem;
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.24);
+        @include media(xs) {
+          margin-bottom: 24px
+        }
+        @include media(sm) {
+          font-size: 24px;
+        }
+        @include media(md) {
+          font-size: 24px;
+        }
+        @include media(lg) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  .text {
+    p {
+      text-align: center;
+      @include media(xs) {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 72px;
+      }
+      @include media(sm) {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 64px;
+      }
+      @include media(md) {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+      }
+      @include media(lg) {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 80px;
+      }
+    }
+  }
+  .mission {
+    @include media(xs) {
+      margin-bottom: 56px;
+    }
+    @include media(sm) {
+      padding: 56px 0;
+      margin-bottom: 56px;
+    }
+    @include media(md) {
+      margin-bottom: 64px;
+    }
+    @include media(lg) {
+      margin-bottom: 80px;
+      padding: 56px 0;
+    }
+    background-color: #f3f0ec;
+    padding: 32px;
+    .container {
+      @include media(md) {
+        width: 85%;
+        margin: 0 auto;
+      }
+      @include media(lg) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        @include media(xs) {
+          height: 200px;
+          margin-bottom: 24px;
+        }
+        @include media(sm) {
+          height: 250px;
+        }
+        @include media(md) {
+          height: 300px;
+        }
+        @include media(lg) {
+          height: 350px;
+        }
+      }
+      .mission_text {
+        @include media(lg) {
+          padding: 0 32px;
+        }
+        h2 {
+          @include heading();
+          @include media(xs) {
+            font-size: 3.2rem;
+            margin-bottom: 40px;
+          }
+          @include media(sm) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(md) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(lg) {
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+  }
+  .difference {
+    @include media(xs) {
+      margin-bottom: 56px;
+    }
+    @include media(sm) {
+      padding: 56px 0;
+      margin-bottom: 56px;
+    }
+    @include media(md) {
+      margin-bottom: 64px;
+    }
+    @include media(lg) {
+      margin-bottom: 80px;
+      padding: 56px 0;
+    }
+    padding: 32px;
+    .container {
+      @include media(md) {
+        width: 85%;
+        margin: 0 auto;
+      }
+      @include media(lg) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .difference_img {
+        @include media(lg) {
+          order: 2;// *
+        }
+        img {
+          width: 100%;
+          object-fit: cover;
+          @include media(xs) {
+            height: 200px;
+            margin-bottom: 24px;
+          }
+          @include media(sm) {
+            height: 250px;
+          }
+          @include media(md) {
+            height: 300px;
+          }
+          @include media(lg) {
+            height: 350px;
+          }
+        }
+      }
+      .difference_text {
+        @include media(lg) {
+          order: 1;// *
+        }
+        @include media(lg) {
+          padding: 0 32px;
+        }
+        h2 {
+          @include heading();
+          @include media(xs) {
+            font-size: 3.2rem;
+            margin-bottom: 40px;
+          }
+          @include media(sm) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(md) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(lg) {
+            font-size: 4rem;
+          }
+        }
+      }
+
+    }
+  }
+  .traditions {
+    @include media(xs) {
+      margin-bottom: 56px;
+    }
+    @include media(sm) {
+      padding: 56px 0;
+      margin-bottom: 56px;
+    }
+    @include media(md) {
+      margin-bottom: 64px;
+    }
+    @include media(lg) {
+      margin-bottom: 80px;
+      padding: 56px 0;
+    }
+    background-color: #f3f0ec;
+    padding: 32px;
+    .container {
+      @include media(md) {
+        width: 85%;
+        margin: 0 auto;
+      }
+      @include media(lg) {
+        width: 80%;
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        @include media(xs) {
+          height: 200px;
+          margin-bottom: 24px;
+        }
+        @include media(sm) {
+          height: 250px;
+        }
+        @include media(md) {
+          height: 300px;
+        }
+        @include media(lg) {
+          height: 350px;
+        }
+      }
+      .traditions_text {
+        @include media(lg) {
+          padding: 0 32px;
+        }
+        h2 {
+          @include heading();
+          @include media(xs) {
+            font-size: 3.2rem;
+            margin-bottom: 40px;
+          }
+          @include media(sm) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(md) {
+            font-size: 4rem;
+            margin-bottom: 40px;
+          }
+          @include media(lg) {
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+  }
+  .link_home {
+    @include media(xs) {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 72px;
+    }
+    @include media(sm) {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 100px;
+    }
+    @include media(md) {
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 100px;
+    }
+    @include media(lg) {
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 160px;
+    }
+    text-align: center;
+    h1 {
+      @include heading();
+      @include media(xs) {
+        font-size: 2.4rem;
+        margin-bottom: 56px;
+      }
+      @include media(sm) {
+        font-size: 4rem;
+        margin-bottom: 64px;
+      }
+      @include media(md) {
+        font-size: 4rem;
+        margin-bottom: 56px;
+      }
+      @include media(lg) {
+        font-size: 4rem;
+        margin-bottom: 72px;
+      }
+    }
+    a {
+      background-color: #ce9d4c;
+      letter-spacing: 0.5rem;
+      color: white;
+      padding: 24px 40px;
+      border-radius: 5px;
+    }
+    a:hover {
+      background-color: #d7b887;
+    }
+
+  }
+}

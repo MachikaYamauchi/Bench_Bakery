@@ -1,16 +1,76 @@
-.login {
-  width: 350px;
+$breakpoints: (
+  'xs': 'screen and (min-width: 1px)',
+  'sm': 'screen and (min-width: 576px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 992px)',
+)!default;
+
+@mixin media($breakpoint:md){
+  @media #{map-get($breakpoints,$breakpoint)}{
+    @content;
+  }
 }
 
-h1 {
-  margin-bottom: 40px;
-}
+.login_benchbakery {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #503629;
+  background-color: #f9f9f9;
+  font-size: 1.8rem;
+  .login {
+    @include media(xs) {
+      width: 90%;
+      margin: 0 auto;
+      padding: 5% 0;
+    }
+    @include media(md) {
+      width: 70%;
+      margin: 0 auto;
+      padding: 5% 0;
+    }
+    @include media(lg) {
+      width: 30%;
+      margin: 0 auto;
+      padding: 5% 0;
+    }
+  }
 
-.error {
-  color: red;
-  font-size: 20px;
-}
+  h1 {
+    @include media(xs) {
+      font-size: 32px;
+    }
+    margin-bottom: 40px;
+  }
 
-.btn {
-  margin-top: 32px;
+  .input_container {
+    @include media(xs) {
+      margin-bottom: 24px;
+    }
+    .form-control {
+      @include media(xs) {
+        font-size: 20px;
+      }
+    }
+    p {
+      color: gray;
+    }
+  }
+
+  .error {
+    color: red;
+    font-size: 20px;
+  }
+
+  .btn_login {
+    @include media(xs) {
+      font-size: 20px;
+      margin-top: 32px;
+    }
+  }
+
+  .btn_home {
+    @include media(xs) {
+      font-size: 20px;
+      margin-top: 32px;
+    }
+  }
 }

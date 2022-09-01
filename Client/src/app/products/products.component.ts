@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Product } from '../interfaces/common.interface';
 import { CommonService } from '../services/common.service';
 
@@ -9,22 +10,23 @@ import { CommonService } from '../services/common.service';
 })
 export class ProductsComponent implements OnInit {
 
+  server = environment.bakeryserver;
+
   productsJSON:Product[] =[];
+  stars:number[] = [];
   display:any = false;
   displayProduct = "block";
 
-  isLessStock(stockNumber:number) {
-    if(stockNumber < 10) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
   constructor(private cs:CommonService) { }
 
-
+    isLessStock(stockNumber:number) {
+      if(stockNumber < 10) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
 
   ngOnInit(): void {
     this.cs.displayProduct().subscribe((products) => {

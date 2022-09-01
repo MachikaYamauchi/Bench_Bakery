@@ -1,45 +1,42 @@
 <div class="container update">
-  <h3>Update products</h3>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image1</label>
-    <input [(ngModel)]="image1" type="text" class="form-control" id="exampleInputPassword1">
+  <h1>Update products</h1>
+  <div class="mb-5">
+    <label for="formFile" class="form-label">Image1</label>
+    <input class="form-control" type="file" id="formFile" (change)="trackFile1($event)">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image2</label>
-    <input [(ngModel)]="image2" type="text" class="form-control" id="exampleInputPassword1">
+  <div class="mb-5">
+    <label for="formFile" class="form-label">Image2</label>
+    <input class="form-control" type="file" id="formFile" (change)="trackFile2($event)">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Image3</label>
-    <input [(ngModel)]="image3" type="text" class="form-control" id="exampleInputPassword1">
+  <div class="mb-5">
+    <label for="formFile" class="form-label">Image3</label>
+    <input class="form-control" type="file" id="formFile" (change)="trackFile3($event)">
   </div>
-  <div class="mb-3">
+  <div class="mb-5">
     <label for="exampleInputPassword1" class="form-label">name</label>
-    <input [(ngModel)]="name" type="text" class="form-control" id="exampleInputPassword1">
+    <input [(ngModel)]="name" type="text" class="form-control form-control-lg" id="exampleInputPassword1">
   </div>
-  <div class="mb-3">
+  <div class="mb-5">
     <label for="exampleInputPassword1" class="form-label">rating</label>
-    <input [(ngModel)]="rating" type="text" class="form-control" id="exampleInputPassword1">
+    <input [(ngModel)]="rating" type="text" class="form-control form-control-lg" id="exampleInputPassword1">
   </div>
-  <div class="mb-3">
+  <div class="mb-5">
     <label for="exampleInputPassword1" class="form-label">Price</label>
-    <input [(ngModel)]="price" type="text" class="form-control" id="exampleInputPassword1">
+    <input [(ngModel)]="price" type="text" class="form-control form-control-lg" id="exampleInputPassword1">
   </div>
-  <div class="mb-3">
+  <div class="mb-5">
     <label for="exampleInputPassword1" class="form-label">Stock</label>
-    <input [(ngModel)]="stock" type="text" class="form-control" id="exampleInputPassword1">
+    <input [(ngModel)]="stock" type="text" class="form-control form-control-lg" id="exampleInputPassword1">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Alt</label>
-    <input [(ngModel)]="alt" type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
+  <div class="mb-5">
     <label for="exampleInputPassword1" class="form-label">Description</label>
-    <input [(ngModel)]="description" type="text" class="form-control" id="exampleInputPassword1">
+    <input [(ngModel)]="description" type="text" class="form-control form-control-lg" id="exampleInputPassword1">
   </div>
   <div class="form-check form-switch">
     <input [(ngModel)]="display" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
     <label class="form-check-label" for="flexSwitchCheckDefault">Click if you want to display on the website</label>
   </div>
-  <button class="btn btn-primary" (click)="updateRecommend()">Update</button>
+  <button class="btn btn-primary w-100 btn_update" (click)="updateProduct()">Update</button>
+  <button type="button" class="btn btn-outline-primary w-100 btn_admin" routerLink="/admin">Back to Admin page</button>
   <div *ngIf="!updateStatus" class = "error" [style.display]="displayMessage">Sorry, you cannot add products</div>
 </div>

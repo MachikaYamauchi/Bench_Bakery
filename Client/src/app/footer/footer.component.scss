@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  background-color: #1D314E;
+  padding: 40px;
+  .social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  i {
+    font-size: 24px;
+    padding-left: 16px;
+    color: white;
+  }
+  .right {
+    text-align: center;
+    color: white;
+  }
+}

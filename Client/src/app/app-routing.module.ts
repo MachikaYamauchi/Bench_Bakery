@@ -2,23 +2,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 import { UpdateComponent } from './update/update.component';
-import { ProductsComponent } from './products/products.component';
+import { AboutComponent } from './about/about.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
 
 const routes: Routes = [
-  {path:"products", component:ProductsComponent},
-  {path:"signup", component:SignupComponent},
   {path:"", component:HomeComponent},
-  {path:"login", component:LoginComponent},
+  {path:"products/:id", component:ProductDetailsComponent},
+  {path:"about", component:AboutComponent},
   {path:"admin", component:AdminComponent},
-  {path:"update/:id", component:UpdateComponent}
-
+  {path:"login", component:LoginComponent},
+  {path:"update/:id", component:UpdateComponent},
+  {path:"signup", component:SignupComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

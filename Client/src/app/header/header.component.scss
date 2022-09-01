@@ -1,0 +1,108 @@
+$breakpoints: (
+  'xs': 'screen and (min-width: 1px)',
+  'sm': 'screen and (min-width: 576px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 992px)',
+)!default;
+
+@mixin media($breakpoint:md){
+  @media #{map-get($breakpoints,$breakpoint)}{
+    @content;
+  }
+}
+
+.header {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  top: 0;
+  z-index: 10000;
+
+  nav.navbar {
+    width: 90%;
+    margin: 0 auto;
+    .bench_logo {
+      margin: 16px 0;
+      @include media(xs) {
+        width: 160px;
+      }
+      @include media(sm) {
+        width: 230px;
+      }
+      @include media(md) {
+        width: 250px;
+      }
+      @include media(lg) {
+        width: 280px;
+      }
+    }
+    .container-fluid {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .navbar-toggler .navbar-toggler-icon {
+      font-size: 20px;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(80, 54, 41, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      @include media(md) {
+        font-size: 24px;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(80, 54, 41, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      }
+    }
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 0);
+    }
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include media(lg) {
+        flex-direction: row;
+        align-items: center;
+      }
+      li.nav-item {
+        @include media(xs) {
+          margin-bottom: 16px;
+          font-size: 20px;
+        }
+        @include media(sm) {
+          margin-bottom: 24px;
+          font-size: 24px;
+        }
+        @include media(md) {
+          margin-bottom: 24px;
+          font-size: 24px;
+        }
+        @include media(lg) {
+          font-size: 24px;
+          margin-left: 16px;
+          margin-bottom: 0;
+        }
+      }
+      .nav-link {
+        color: #503629;
+        img {
+          @include media(xs) {
+            width: 16px;
+            margin-right: 5px;
+          }
+          @include media(sm) {
+            width: 20px;
+          }
+          @include media(md) {
+            width: 24px;
+            margin-right: 8px;
+          }
+          @include media(lg) {
+            width: 16px;
+          }
+        }
+      }
+    }
+    .cart {
+      i {
+        font-size: 32px;
+      }
+    }
+  }
+}

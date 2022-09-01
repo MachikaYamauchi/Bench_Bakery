@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { Recommend } from '../interfaces/recommend.interface';
 import { CommonService } from '../services/common.service';
 import { Router } from '@angular/router';
 import { Product } from '../interfaces/common.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin',
@@ -13,25 +13,29 @@ export class AdminComponent implements OnInit {
 
   productsJSON:Product[] =[];
 
-  image1:string = "";
-  image2:string = "";
-  image3:string = "";
+  filename1:string = '';
+  filename2:string = '';
+  filename3:string = '';
+
+  myformdate1:any;
+  myformdate2:any;
+  myformdate3:any;
+
   name:string = "";
   rating:number = 0;
   price:string = "";
   stock:number = 0;
-  alt:string = "";
   description:string = "";
   display:any = 0;
 
   liveOnSite:string = "";
 
-  // filename:string = '';
-  // myformdate:any;
-
   addStatus = false;
   addDisplay = "none";
   addMessage:any = "";
+
+  // server = environment.bakeryserver;
+  server = environment.bakeryserver;
 
   constructor(private cs:CommonService, private router:Router) { }
 
@@ -40,25 +44,59 @@ export class AdminComponent implements OnInit {
     })
   }
 
+  trackFile1(event:any) {
+    let myfile1 = event.target.files[0];
+    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
+    this.filename1 = myfile1.name;
+    // console.log("MY FILE ---> ", myfile);
+    const formdata1 = new FormData();
+    formdata1.append("file_fromC", myfile1, myfile1.name);
+    // console.log("formdata --> ", formdata);
+    this.myformdate1 = formdata1;
+    console.log(this.myformdate1)
+  }
+
+  trackFile2(event:any) {
+    let myfile2 = event.target.files[0];
+    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
+    this.filename2 = myfile2.name;
+    // console.log("MY FILE ---> ", myfile);
+    const formdata2 = new FormData();
+    formdata2.append("file_fromC", myfile2, myfile2.name);
+    // console.log("formdata --> ", formdata);
+    this.myformdate2 = formdata2;
+    console.log(this.myformdate2)
+  }
+
+  trackFile3(event:any) {
+    let myfile3 = event.target.files[0];
+    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
+    this.filename3 = myfile3.name;
+    // console.log("MY FILE ---> ", myfile);
+    const formdata3 = new FormData();
+    formdata3.append("file_fromC", myfile3, myfile3.name);
+    // console.log("formdata --> ", formdata);
+    this.myformdate3 = formdata3;
+    console.log(this.myformdate3)
+  }
+
   add() {
-    this.cs.add(this.image1, this.image2, this.image3, this.name, this.rating, this.price, this.stock, this.alt,this.description, this.display).subscribe(addData=> {
+    this.cs.add(this.filename1, this.filename2, this.filename3, this.name, this.rating, this.price, this.stock, this.description, this.display).subscribe(addData=> {
       console.log(addData);
       this.addStatus = addData.add;
       this.addDisplay = "block";
       this.addMessage = addData.message
+      this.cs.uploadFile(this.myformdate1).subscribe(uploadMessage => {
+        console.log(uploadMessage);
+      })
+      this.cs.uploadFile(this.myformdate2).subscribe(uploadMessage => {
+        console.log(uploadMessage);
+      })
+      this.cs.uploadFile(this.myformdate3).subscribe(uploadMessage => {
+        console.log(uploadMessage);
+      })
     })
   }
-
-  // trackFile(event:any) {
-  //   let myfile = event.target.files[0];
-  //   // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
-  //   this.filename = myfile.name;
-  //   console.log("MY FILE ---> ", myfile);
-  //   const formdata = new FormData();
-  //   formdata.append("file_fromC", myfile, myfile.name);
-  //   // console.log("formdata --> ", formdata);
-  //   this.myformdate = formdata;
-  // }
 
   delete(id:any){
     if(confirm("Are you sure?")) {

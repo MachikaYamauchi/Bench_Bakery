@@ -24,7 +24,6 @@ export class SignupComponent implements OnInit {
       this.signupDisplay = "block";
       this.signupMessage = signupData.message;
     })
-
   }
 
   ngOnInit(): void {

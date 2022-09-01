@@ -1,0 +1,94 @@
+<benchbakery-header></benchbakery-header>
+<section class="productDetail_benchbakery">
+  <div class="product_detail">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="product_img">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="server + '/' + product.image1" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img [src]="server + '/' + product.image2" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img [src]="server + '/' + product.image3" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="right_panel">
+            <h2 class="product_name">{{product.name}}</h2>
+            <p class="price">{{product.price | currency:"CAD"}}</p>
+            <p class="description">{{product.description}}</p>
+            <p>Quantity</p>
+            <div class="quantity">
+              <button value="minus">
+                <i class="fa-solid fa-circle-minus"></i>
+              </button>
+              <div class="qtyinput">1</div>
+              <button value="add">
+                <i class="fa-solid fa-circle-plus"></i>
+              </button>
+            </div>
+            <div class="cart_btn">
+              <button>ADD TO CART</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="related_products">
+    <h2>Related Products</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="product_container">
+            <img src="../../assets/relatedProducts1.jpg" alt="Bench Bakery Related Product">
+            <p class="name">Sourdough Pan Loaf</p>
+            <p>
+              Our best seller! The classic Flourist Sourdough Pan Loaf made with 100% Sifted Red Spring Wheat Flour. Perfect for slicing and freezing.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="product_container">
+            <img src="../../assets/relatedProducts2.jpg" alt="Bench Bakery Related Product">
+            <p class="name">Classic Cookie Bundle</p>
+            <p>An assortment of our classic cookies for gifting, or as a way to try the best we have to offer. </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="product_container">
+            <img src="../../assets/relatedProducts3.jpg" alt="Bench Bakery Related Product">
+            <p class="name">Blueberry Scone</p>
+            <p>
+              A delicious scone with blueberry and Whole Grain Red Spring Wheat Flour.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="product_container">
+            <img src="../../assets/relatedProducts4.jpg" alt="Bench Bakery Related Product">
+            <p class="name">Strawberry + Cream Tart</p>
+            <p>Our flakey spelt pastry filled with pastry cream and local fresh strawberries. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<benchbakery-footer></benchbakery-footer>
