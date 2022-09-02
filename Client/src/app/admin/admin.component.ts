@@ -34,7 +34,6 @@ export class AdminComponent implements OnInit {
   addDisplay = "none";
   addMessage:any = "";
 
-  // server = environment.bakeryserver;
   server = environment.bakeryserver;
 
   constructor(private cs:CommonService, private router:Router) { }
@@ -46,36 +45,27 @@ export class AdminComponent implements OnInit {
 
   trackFile1(event:any) {
     let myfile1 = event.target.files[0];
-    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
-    this.filename1 = myfile1.name;
-    // console.log("MY FILE ---> ", myfile);
+    this.filename1 = myfile1.name; // To use in "addNewTweet", put myfile.name into filename1
     const formdata1 = new FormData();
     formdata1.append("file_fromC", myfile1, myfile1.name);
-    // console.log("formdata --> ", formdata);
     this.myformdate1 = formdata1;
     console.log(this.myformdate1)
   }
 
   trackFile2(event:any) {
     let myfile2 = event.target.files[0];
-    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
     this.filename2 = myfile2.name;
-    // console.log("MY FILE ---> ", myfile);
     const formdata2 = new FormData();
     formdata2.append("file_fromC", myfile2, myfile2.name);
-    // console.log("formdata --> ", formdata);
     this.myformdate2 = formdata2;
     console.log(this.myformdate2)
   }
 
   trackFile3(event:any) {
     let myfile3 = event.target.files[0];
-    // このfilenameは、他のmethodつまり、addNewTweetで使うため、myfile.nameを代入している
     this.filename3 = myfile3.name;
-    // console.log("MY FILE ---> ", myfile);
     const formdata3 = new FormData();
     formdata3.append("file_fromC", myfile3, myfile3.name);
-    // console.log("formdata --> ", formdata);
     this.myformdate3 = formdata3;
     console.log(this.myformdate3)
   }
@@ -100,11 +90,9 @@ export class AdminComponent implements OnInit {
 
   delete(id:any){
     if(confirm("Are you sure?")) {
-      // let id:any = this.route.snapshot.paramMap.get("id");
       this.cs.delete(id).subscribe(deletedata=> {
         console.log(deletedata);
         if(deletedata.delete) {
-          // this.router.navigate(['/admin']);
           this.ngOnInit();
         }
       })
