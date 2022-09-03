@@ -55,15 +55,29 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 
 - ActivatedRoute
   - Connect to the detail page from the products listing on the homepage by using product id
+ 
+- LocalStorage
+  - Enabled to login and signout from the admin page
+
+- Admin page
+  - Able to manage front page by adding, updating, deleting and toggling display
+  - For the dashboard layout, use [Bootstrap Examples](https://getbootstrap.com/docs/5.2/examples/dashboard/)
 
 - File Uploading
   - Creating methods to upload image files to database
+
+- Responsive
+  Using [Bootstrap grid system](https://getbootstrap.com/docs/5.2/layout/grid/#example)
+  
+- Carousel
+  On the product details page, I implemented [Bootstrap carousel](https://getbootstrap.com/docs/5.2/components/carousel/#how-it-works)
+
 
 ### Data Structure
 ![Data_Structure](https://user-images.githubusercontent.com/95946408/188260154-48ccde32-54d3-4cb5-9b7c-e2a708ed95cd.jpg)
 
 ### MySQL Stored Procedures
-1. Insert new product
+1. Add new product
 2. Delete Product
 3. Select products which will be displayed on the front page
 4. Get all products
@@ -72,7 +86,13 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 7. Togggle display on the front page 
 8. Update the product
 
-![Stored_Procedure](https://user-images.githubusercontent.com/95946408/188260640-0342037d-e763-4b5c-a425-bfac4f68eba7.png)
+<img src="https://user-images.githubusercontent.com/95946408/188260640-0342037d-e763-4b5c-a425-bfac4f68eba7.png" width="500px">
+
+### REST API Endpoints
+Build REST API Endpoints to create e-commerce CMS function
+
+
+
 
 
 ### Marketing
