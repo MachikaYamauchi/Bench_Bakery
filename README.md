@@ -47,6 +47,7 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 
 ## What I did
 ### Site Map
+<img src="https://user-images.githubusercontent.com/95946408/188286659-7bd46c96-977f-4ed5-9609-0e71edfbe4bf.jpg" width="500px">
 
 ### Front-end
 - Microservices
