@@ -20,11 +20,28 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - Illustrator
 - Agile
 
-## Features
-### Front page
-- List of products
-- Connecting product details page if you click a product from the list
-  - Product Details page has quantity section (Counting quantity is not the part of this project.)
-  - Add to cart (Shopping cart is not the part of this project.)
-### Admin page (Back-end)
-- 
+## Task
+### Front-end
+- Display the list of products available on the homepage
+- Show clear title, description, stock availability and price for each of the products
+- Product details page connecting from the list (I add the details page after the project finished.)
+  - 3 images for each product with carousel
+  - Quantity section (Upcoming Feature)
+  - Add to cart (Upcoming Feature)
+- Responsive on all screen sizes so that shoppers can access the e-commerce webite from any gadget
+
+### Marketing
+- SEO friendly to gain a higher rank in the search results
+
+### Design
+- Typography
+  - Very relevant to e-commerce websites so that it is easy for online shoppers to read and follow
+- Design
+  - Satisfy all basic user experience requirements for being easy and intuitive to use
+
+### Back-end
+- All data of listing products on he homepage are needed to be in JSON format with appropriate interfaces defined
+
+### Agile
+- T-shirt sizing on each user story to plan the development
+
