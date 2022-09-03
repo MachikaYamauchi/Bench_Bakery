@@ -47,17 +47,17 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 
 ## What I did
 ### Front-end
-**Microservices**<br>
-Connecting the Rest API endpoints from the server to the client
+- Microservices
+  - Connecting the Rest API endpoints from the server to the client
 
-**Subscribe**<br>
-Subscribe the data from the services folder in each component
+- Subscribe
+  - Subscribe the data from the services folder in each component
 
-**ActivatedRoute**<br>
-Connect to the detail page from the products listing on the homepage by using product id
+- ActivatedRoute
+  - Connect to the detail page from the products listing on the homepage by using product id
 
-**File Uploading**<br>
-Creating methods to upload image files to database
+- File Uploading
+  - Creating methods to upload image files to database
 
 ### Back-end
 
