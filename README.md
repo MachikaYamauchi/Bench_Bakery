@@ -72,6 +72,8 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 7. Togggle display on the front page 
 8. Update the product
 
+![Stored_Procedure](https://user-images.githubusercontent.com/95946408/188260640-0342037d-e763-4b5c-a425-bfac4f68eba7.png)
+
 
 ### Marketing
 - Write keywords on meta tag, title tag and H1 tag
