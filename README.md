@@ -33,6 +33,9 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - Sign out from the admin page (I add the sign out after the project finished.)
 - Responsive on all screen sizes so that shoppers can access the e-commerce webite from any gadget
 
+### Back-end
+- All data of listing products on the homepage are needed to be in JSON format with appropriate interfaces defined
+
 ### Marketing
 - SEO friendly to gain a higher rank in the search results
 
@@ -42,31 +45,29 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - Design
   - Satisfy all basic user experience requirements for being easy and intuitive to use
 
-### Back-end
-- All data of listing products on the homepage are needed to be in JSON format with appropriate interfaces defined
-
-### Agile
-- T-shirt sizing on each user story to plan the development
-
 ## What I did
 ### Front-end
-**Microservices**
+**Microservices**<br>
 Connecting the Rest API endpoints from the server to the client
 
-**Subscribe**
+**Subscribe**<br>
 Subscribe the data from the services folder in each component
 
-**ActivatedRoute**
+**ActivatedRoute**<br>
 Connect to the detail page from the products listing on the homepage by using product id
 
-**File Uploading**
+**File Uploading**<br>
 Creating methods to upload image files to database
 
-**SEO**
+### Back-end
+
+### Marketing
 - Write keywords on meta tag, title tag and H1 tag
 - Set alt description on image tag.
 - Semantic HTML
 
-### Back-end
+### Agile
+- T-shirt sizing on each user story to plan the development
+
 
 
