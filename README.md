@@ -59,7 +59,9 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - File Uploading
   - Creating methods to upload image files to database
 
-### Back-end
+### Data Structure
+![Data_Structure](https://user-images.githubusercontent.com/95946408/188260154-48ccde32-54d3-4cb5-9b7c-e2a708ed95cd.jpg)
+
 
 ### Marketing
 - Write keywords on meta tag, title tag and H1 tag
