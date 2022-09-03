@@ -46,6 +46,8 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
   - Satisfy all basic user experience requirements for being easy and intuitive to use
 
 ## What I did
+### Site Map
+
 ### Front-end
 - Microservices
   - Connecting the Rest API endpoints from the server to the client
@@ -72,7 +74,6 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - Carousel
   On the product details page, I implemented [Bootstrap carousel](https://getbootstrap.com/docs/5.2/components/carousel/#how-it-works)
 
-
 ### Data Structure
 ![Data_Structure](https://user-images.githubusercontent.com/95946408/188260154-48ccde32-54d3-4cb5-9b7c-e2a708ed95cd.jpg)
 
@@ -91,7 +92,7 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 ### REST API Endpoints
 Build REST API Endpoints to create the e-commerce CMS function
 
-<img src="https://user-images.githubusercontent.com/95946408/188262239-2b891df4-930b-41f5-90c2-10b40923f884.jpg" width="640px">
+<img src="https://user-images.githubusercontent.com/95946408/188286620-8fa19b23-d744-4fe0-acf5-2bdce57625b8.jpg" width="640px">
 
 ### Marketing
 - Write keywords on the meta tag, title tag, and H1 tag
