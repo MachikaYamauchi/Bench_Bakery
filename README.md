@@ -3,10 +3,10 @@
 ![GitHub BenchBakery_infinite_pressed](https://user-images.githubusercontent.com/95946408/188254918-60817c17-385d-48e9-b06c-51c399bce37b.gif)
 
 ## About the Project
-This is a 2-day challenge project to build full-stack e-commerce site (School Project)
+This is a 2-day challenge project to build a full-stack e-commerce site (School Project)
 
 ## Description
-Bench Bakery is a microservices-based e-commerce web application that helps hungry people to order easily. I built both the front-end and back-end. For the front-end, I created the logo and designed the website with SEO friendly. For the back-end, I built client server architecture with REST APIs and stored procedures that connect to MySQL. In this application, the bakery owners can manage the website by CMS. They can add, update and delete a product onto the website.
+Bench Bakery is a microservices-based e-commerce web application that helps hungry people to order easily. I built both the front-end and back-end. For the front-end, I created the logo and designed the website to be SEO friendly. For the back-end, I built client-server architecture with REST APIs and stored procedures that connect to MySQL. In this application, the bakery owners can manage the website by CMS. They can add, update and delete a product onto the website.
 <br>
 [DEMO Site](https://machikayamauchi.me/benchbakery/home)
 
@@ -23,15 +23,15 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 ## Features
 ### Front-end
 - Display the list of products available on the homepage
-- Show clear title, description, stock availability and price for each of the products
-- Product details page connecting from the list (I add the details page after the project finished.)
-  - 3 images for each product with carousel
+- Show clear title, description, stock availability, and price for each of the products
+- Product details page connecting from the list (I add the details page after the project was finished.)
+  - 3 images for each product with a carousel
   - Quantity section (Upcoming Feature)
   - Add to cart (Upcoming Feature)
 - Login to enter the admin page
-- Create admin page so that the bakery owners can add, update and delete a product onto the website
+- Create an admin page so that the bakery owners can add, update and delete a product onto the website
 - Sign out from the admin page (I add the sign out after the project finished.)
-- Responsive on all screen sizes so that shoppers can access the e-commerce webite from any gadget
+- Responsive on all screen sizes so that shoppers can access the e-commerce website from any gadget
 
 ### Back-end
 - All data of listing products on the homepage are needed to be in JSON format with appropriate interfaces defined
@@ -54,17 +54,17 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
   - Subscribe the data from the services folder in each component
 
 - ActivatedRoute
-  - Connect to the detail page from the products listing on the homepage by using product id
+  - Connect to the detail page from the products listing on the homepage by using the product id
  
 - LocalStorage
-  - Enabled to login and signout from the admin page
-
+  - Enabled to login and sign out from the admin page
+  
 - Admin page
-  - Able to manage front page by adding, updating, deleting and toggling display
+  - Able to manage front page by adding, updating, deleting, and toggling display
   - For the dashboard layout, use [Bootstrap Examples](https://getbootstrap.com/docs/5.2/examples/dashboard/)
 
 - File Uploading
-  - Creating methods to upload image files to database
+  - Creating methods to upload image files to the database
 
 - Responsive
   Using [Bootstrap grid system](https://getbootstrap.com/docs/5.2/layout/grid/#example)
@@ -83,25 +83,30 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 4. Get all products
 5. Get one product selected by product id
 6. login
-7. Togggle display on the front page 
+7. Toggle display on the front page
 8. Update the product
 
 <img src="https://user-images.githubusercontent.com/95946408/188260640-0342037d-e763-4b5c-a425-bfac4f68eba7.png" width="500px">
 
 ### REST API Endpoints
-Build REST API Endpoints to create e-commerce CMS function
+Build REST API Endpoints to create the e-commerce CMS function
 
-
-
-
+<img src="https://user-images.githubusercontent.com/95946408/188262239-2b891df4-930b-41f5-90c2-10b40923f884.jpg" width="640px">
 
 ### Marketing
-- Write keywords on meta tag, title tag and H1 tag
-- Set alt description on image tag.
+- Write keywords on the meta tag, title tag, and H1 tag
+- Set alt description on the image tag.
 - Semantic HTML
 
 ### Agile
 - T-shirt sizing on each user story to plan the development
 
+## Upcoming Features
+- Cart function
+- User authentication
+- Add product category
+- Filter products by the category
+- Product search function
+- Payment System
 
 
