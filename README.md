@@ -62,6 +62,16 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 ### Data Structure
 ![Data_Structure](https://user-images.githubusercontent.com/95946408/188260154-48ccde32-54d3-4cb5-9b7c-e2a708ed95cd.jpg)
 
+### MySQL Stored Procedures
+1. Insert new product
+2. Delete Product
+3. Select products which will be displayed on the front page
+4. Get all products
+5. Get one product selected by product id
+6. login
+7. Togggle display on the front page 
+8. Update the product
+
 
 ### Marketing
 - Write keywords on meta tag, title tag and H1 tag
