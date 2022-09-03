@@ -3,10 +3,10 @@
 ![GitHub BenchBakery_infinite_pressed](https://user-images.githubusercontent.com/95946408/188254918-60817c17-385d-48e9-b06c-51c399bce37b.gif)
 
 ## About the Project
-This is a 2-day challenge project to build e-commerce site including both the front-end and back-end.(School Project)
+This is a 2-day challenge project to build full-stack e-commerce site (School Project)
 
 ## Description
-Bench Bakery is a microservices-based e-commerce web application that helps hungry people to order easily. I built both the front-end and back-end. For the front-end, I created the logo and designed the website with SEO friendly. For the back-end, I built client server architecture with REST APIs and stored procedures that connect to MySQL. In this application, the bakery owner can manage the website by CMS. They can add, update and delete a product onto the website.
+Bench Bakery is a microservices-based e-commerce web application that helps hungry people to order easily. I built both the front-end and back-end. For the front-end, I created the logo and designed the website with SEO friendly. For the back-end, I built client server architecture with REST APIs and stored procedures that connect to MySQL. In this application, the bakery owners can manage the website by CMS. They can add, update and delete a product onto the website.
 <br>
 [DEMO Site](https://machikayamauchi.me/benchbakery/home)
 
@@ -20,7 +20,7 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
 - Illustrator
 - Agile
 
-## Task
+## Features
 ### Front-end
 - Display the list of products available on the homepage
 - Show clear title, description, stock availability and price for each of the products
@@ -28,6 +28,9 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
   - 3 images for each product with carousel
   - Quantity section (Upcoming Feature)
   - Add to cart (Upcoming Feature)
+- Login to enter the admin page
+- Create admin page so that the bakery owners can add, update and delete a product onto the website
+- Sign out from the admin page (I add the sign out after the project finished.)
 - Responsive on all screen sizes so that shoppers can access the e-commerce webite from any gadget
 
 ### Marketing
@@ -40,8 +43,30 @@ Bench Bakery is a microservices-based e-commerce web application that helps hung
   - Satisfy all basic user experience requirements for being easy and intuitive to use
 
 ### Back-end
-- All data of listing products on he homepage are needed to be in JSON format with appropriate interfaces defined
+- All data of listing products on the homepage are needed to be in JSON format with appropriate interfaces defined
 
 ### Agile
 - T-shirt sizing on each user story to plan the development
+
+## What I did
+### Front-end
+**Microservices**
+Connecting the Rest API endpoints from the server to the client
+
+**Subscribe**
+Subscribe the data from the services folder in each component
+
+**ActivatedRoute**
+Connect to the detail page from the products listing on the homepage by using product id
+
+**File Uploading**
+Creating methods to upload image files to database
+
+**SEO**
+- Write keywords on meta tag, title tag and H1 tag
+- Set alt description on image tag.
+- Semantic HTML
+
+### Back-end
+
 
